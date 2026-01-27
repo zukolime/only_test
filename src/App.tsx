@@ -1,10 +1,17 @@
+import { Container, GlobalStyle } from './styles/GlobalStyle';
+
 function App() {
   return (
-    <div className='App'>
-      <header className='App-header'>
-        <h1>Исторические даты</h1>
-      </header>
-    </div>
+    <>
+      <GlobalStyle />
+      <Container>
+        <div className='App'>
+          <header className='App-header'>
+            <h1>Исторические даты</h1>
+          </header>
+        </div>
+      </Container>
+    </>
   );
 }
 
