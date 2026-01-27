@@ -5,6 +5,7 @@ import { colors } from '@/styles/colors';
 export const TimespanWrapper = styled.div`
   position: absolute;
   inset: 0;
+  top: 30%;
   z-index: 10;
   display: flex;
   align-items: center;
@@ -12,11 +13,10 @@ export const TimespanWrapper = styled.div`
   gap: clamp(30px, 8vw, 100px);
   pointer-events: none;
 
-  @media (max-width: 920px) {
+  @media (max-width: 992px) {
     position: static;
     margin: 40px 0;
     gap: 30px;
-    grid-area: timespan;
   }
 `;
 

@@ -3,7 +3,7 @@ import { colors } from '@/styles/colors';
 
 export const SectionHeader = styled.header`
   position: relative;
-  margin-bottom: -11px;
+  align-self: flex-start;
   padding-left: clamp(42px, 2vw, 78px);
   padding-right: 40px;
 

@@ -1,4 +1,4 @@
-import { SectionHeader, Title } from '@/components/SectionTitle/SectionTitle.styled';
+import { SectionHeader, Title } from './SectionTitle.styled';
 
 export const SectionTitle = ({ title }: { title: string }) => {
   return (

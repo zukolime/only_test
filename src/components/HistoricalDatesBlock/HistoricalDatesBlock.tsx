@@ -1,5 +1,6 @@
 import { SectionTitle } from '@/components/SectionTitle/SectionTitle';
 import { Timespan } from './Timespan/Timespan';
+import { LabelsCircle } from './LabelsCircle/LabelsCircle';
 
 export const HistoricalDatesBlock = ({ data }: { data: any }) => {
   return (
@@ -8,7 +9,8 @@ export const HistoricalDatesBlock = ({ data }: { data: any }) => {
       <Timespan
         startYear={data[0].timespan.start}
         lastYear={data[0].timespan.last}
-      ></Timespan>
+      />
+      <LabelsCircle />
     </>
   );
 };

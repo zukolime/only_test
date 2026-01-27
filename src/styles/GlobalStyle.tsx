@@ -67,13 +67,15 @@ export const Section = styled.section`
   position: relative;
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
   padding-top: clamp(59px, 10vw, 170px);
   padding-bottom: clamp(13px, 2vw, 104px);
 
   &:before {
-    content: "";
+    content: '';
     position: absolute;
-    top: 50%;
+    top: 65%;
     left: 0;
     width: 100%;
     height: 1px;
@@ -81,7 +83,7 @@ export const Section = styled.section`
   }
 
   &:after {
-    content: "";
+    content: '';
     position: absolute;
     top: 0;
     left: 50%;
@@ -90,9 +92,10 @@ export const Section = styled.section`
     background-color: ${colors.secondary};
   }
 
-   @media (max-width: 920px) {
+  @media (max-width: 992px) {
     &:before,
     &:after {
       display: none;
     }
+  }
 `;
