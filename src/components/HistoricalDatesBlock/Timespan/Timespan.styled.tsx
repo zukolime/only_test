@@ -5,17 +5,16 @@ import { colors } from '@/styles/colors';
 export const TimespanWrapper = styled.div`
   position: absolute;
   inset: 0;
-  top: 30%;
+  top: 50%;
   z-index: 10;
   display: flex;
   align-items: center;
   justify-content: center;
   gap: clamp(30px, 8vw, 100px);
+  transform: translateY(-50%);
   pointer-events: none;
 
-  @media (max-width: 992px) {
-    position: static;
-    margin: 40px 0;
+  @media (max-width: 520px) {
     gap: 30px;
   }
 `;

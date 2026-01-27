@@ -3,15 +3,14 @@ import styled from 'styled-components';
 
 export const CircleContainer = styled.div`
   --circle-size: clamp(420px, 40vw, 530px);
-  position: relative;
-  z-index: 20;
-  margin: auto;
+  position: absolute;
+  text-align: center;
   width: var(--circle-size);
   aspect-ratio: 1;
-  border-radius: 100%;
   border: 1px solid ${colors.secondary};
+  border-radius: 100%;
 
-  @media (max-width: 992px) {
+  @media (max-width: 768px) {
     display: none;
   }
 `;

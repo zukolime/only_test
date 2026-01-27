@@ -55,7 +55,7 @@ export const Container = styled.div`
   border-right: 1px solid ${colors.secondary};
   border-left: 1px solid ${colors.secondary};
 
-  @media (max-width: 760px) {
+  @media (max-width: 768px) {
     max-width: 90%;
     margin: 0 auto;
     border-right: none;
@@ -69,14 +69,13 @@ export const Section = styled.section`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding-top: clamp(59px, 10vw, 170px);
-  padding-bottom: clamp(13px, 2vw, 104px);
+  max-width: 100%;
+  min-height: 100dvh;
+  height: 100dvh;
 
   &:before {
     content: '';
     position: absolute;
-    top: 65%;
-    left: 0;
     width: 100%;
     height: 1px;
     background-color: ${colors.secondary};
@@ -85,17 +84,25 @@ export const Section = styled.section`
   &:after {
     content: '';
     position: absolute;
-    top: 0;
-    left: 50%;
     width: 1px;
     height: 100%;
     background-color: ${colors.secondary};
   }
 
-  @media (max-width: 992px) {
+  @media (max-width: 768px) {
     &:before,
     &:after {
       display: none;
     }
+  }
+`;
+
+export const SectionContent = styled.div`
+  align-self: flex-start;
+  padding-left: clamp(42px, 2vw, 78px);
+  padding-right: 40px;
+
+  @media (max-width: 768px) {
+    padding: 0;
   }
 `;

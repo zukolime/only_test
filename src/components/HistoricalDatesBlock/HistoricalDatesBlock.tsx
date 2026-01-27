@@ -1,6 +1,8 @@
 import { SectionTitle } from '@/components/SectionTitle/SectionTitle';
 import { Timespan } from './Timespan/Timespan';
 import { LabelsCircle } from './LabelsCircle/LabelsCircle';
+import { SliderNavigation } from './SliderNavigation/SliderNavigation';
+import { SectionContent } from '@/styles/GlobalStyle';
 
 export const HistoricalDatesBlock = ({ data }: { data: any }) => {
   return (
@@ -11,6 +13,10 @@ export const HistoricalDatesBlock = ({ data }: { data: any }) => {
         lastYear={data[0].timespan.last}
       />
       <LabelsCircle />
+
+      <SectionContent>
+        <SliderNavigation />
+      </SectionContent>
     </>
   );
 };
