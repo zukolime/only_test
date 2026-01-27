@@ -62,3 +62,37 @@ export const Container = styled.div`
     border-left: none;
   }
 `;
+
+export const Section = styled.section`
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding-top: clamp(59px, 10vw, 170px);
+  padding-bottom: clamp(13px, 2vw, 104px);
+
+  &:before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background-color: ${colors.secondary};
+  }
+
+  &:after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 1px;
+    height: 100%;
+    background-color: ${colors.secondary};
+  }
+
+   @media (max-width: 920px) {
+    &:before,
+    &:after {
+      display: none;
+    }
+`;

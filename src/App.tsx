@@ -1,15 +1,15 @@
-import { Container, GlobalStyle } from './styles/GlobalStyle';
+import { Container, GlobalStyle, Section } from '@/styles/GlobalStyle';
+import { HistoricalDatesBlock } from '@/components/HistoricalDatesBlock/HistoricalDatesBlock';
+import { data } from './data/data';
 
 function App() {
   return (
     <>
       <GlobalStyle />
       <Container>
-        <div className='App'>
-          <header className='App-header'>
-            <h1>Исторические даты</h1>
-          </header>
-        </div>
+        <Section>
+          <HistoricalDatesBlock data={data} />
+        </Section>
       </Container>
     </>
   );
