@@ -49,13 +49,18 @@ export const GlobalStyle = createGlobalStyle`
 
 export const Container = styled.div`
   max-width: 1440px;
-  margin-right: clamp(0px, 10vw, 160px);
+  margin-right: clamp(10px, 10vw, 160px);
   margin-left: clamp(20px, 20vw, 320px);
 
   border-right: 1px solid ${colors.secondary};
   border-left: 1px solid ${colors.secondary};
 
-  @media (max-width: 768px) {
+  @media (max-width: 1350px) {
+    margin-right: 6vw;
+    margin-left: 6vw;
+  }
+
+  @media (max-width: 992px) {
     max-width: 90%;
     margin: 0 auto;
     border-right: none;
@@ -89,7 +94,7 @@ export const Section = styled.section`
     background-color: ${colors.secondary};
   }
 
-  @media (max-width: 768px) {
+  @media (max-width: 992px) {
     &:before,
     &:after {
       display: none;
@@ -103,7 +108,7 @@ export const SectionContent = styled.div`
   padding-right: 40px;
   width: 100%;
 
-  @media (max-width: 768px) {
+  @media (max-width: 992px) {
     padding: 0;
   }
 `;
