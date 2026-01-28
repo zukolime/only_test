@@ -1,14 +1,14 @@
 import { data } from '@/data/data';
-import { PointButton, PointNumber, PointLabel } from './Points.styled';
+import {
+  CircleContainer,
+  PointButton,
+  PointLabel,
+  PointNumber,
+} from './CircleNavigation.styled';
 
-interface PointsProps {
-  id: string;
-  label: string;
-}
-
-export const Points = () => {
+export const CircleNavigation = () => {
   return (
-    <>
+    <CircleContainer>
       {data.map((item) => (
         <PointButton
           data-index={item.id}
@@ -18,6 +18,6 @@ export const Points = () => {
           <PointLabel>{item.label}</PointLabel>
         </PointButton>
       ))}
-    </>
+    </CircleContainer>
   );
 };

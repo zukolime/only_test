@@ -101,6 +101,7 @@ export const SectionContent = styled.div`
   align-self: flex-start;
   padding-left: clamp(42px, 2vw, 78px);
   padding-right: 40px;
+  width: 100%;
 
   @media (max-width: 768px) {
     padding: 0;
