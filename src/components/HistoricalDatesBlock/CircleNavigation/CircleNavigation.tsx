@@ -6,16 +6,34 @@ import {
   PointNumber,
 } from './CircleNavigation.styled';
 
-export const CircleNavigation = () => {
+interface CircleNavigationProps {
+  activeIndex: number;
+  onSelect: (index: number) => void;
+}
+
+export const CircleNavigation = ({
+  activeIndex,
+  onSelect,
+}: CircleNavigationProps) => {
+  const total = data.length;
+  const angleStep = 360 / total;
+
   return (
     <CircleContainer>
-      {data.map((item) => (
+      {data.map((item, index) => (
         <PointButton
-          data-index={item.id}
           key={item.id}
+          onClick={() => onSelect(index)}
+          $isActive={index === activeIndex}
+          style={
+            {
+              '--angle': `${index * angleStep}deg`,
+            } as React.CSSProperties
+          }
+          data-active={index === activeIndex}
         >
-          <PointNumber>{+item.id + 1}</PointNumber>
-          <PointLabel>{item.label}</PointLabel>
+          <PointNumber $isActive={index === activeIndex}>{index + 1}</PointNumber>
+          <PointLabel $isActive={index === activeIndex}>{item.label}</PointLabel>
         </PointButton>
       ))}
     </CircleContainer>

@@ -7,22 +7,35 @@ import {
   SliderNavigationWrapper,
 } from './SliderNavigation.styled';
 
-export const SliderNavigation = () => {
+interface SliderNavigationProps {
+  current: number;
+  total: number;
+  onPrev: () => void;
+  onNext: () => void;
+}
+
+export const SliderNavigation = ({
+  current,
+  total,
+  onPrev,
+  onNext,
+}: SliderNavigationProps) => {
   return (
     <SliderNavigationWrapper>
-      <SliderNavigationCounter>01/06</SliderNavigationCounter>
+      <SliderNavigationCounter>
+        {String(current).padStart(2, '0')}/{String(total).padStart(2, '0')}
+      </SliderNavigationCounter>
 
       <SliderNavigationArrows>
-        <SliderNavigationArrow>
+        <SliderNavigationArrow onClick={onPrev}>
           <ArrowIcon
-            name='arrow-left'
             width={8}
             height={14}
           />
         </SliderNavigationArrow>
-        <SliderNavigationArrow>
+
+        <SliderNavigationArrow onClick={onNext}>
           <ArrowIcon
-            name='arrow-right'
             width={8}
             height={14}
             style={{ transform: 'rotate(180deg)' }}
