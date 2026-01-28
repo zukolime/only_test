@@ -10,6 +10,8 @@ import {
 interface SliderNavigationProps {
   current: number;
   total: number;
+  isBeginning: boolean;
+  isEnd: boolean;
   onPrev: () => void;
   onNext: () => void;
 }
@@ -17,6 +19,8 @@ interface SliderNavigationProps {
 export const SliderNavigation = ({
   current,
   total,
+  isBeginning,
+  isEnd,
   onPrev,
   onNext,
 }: SliderNavigationProps) => {
@@ -27,14 +31,22 @@ export const SliderNavigation = ({
       </SliderNavigationCounter>
 
       <SliderNavigationArrows>
-        <SliderNavigationArrow onClick={onPrev}>
+        <SliderNavigationArrow
+          onClick={onPrev}
+          $disabled={isBeginning}
+          aria-disabled={isBeginning}
+        >
           <ArrowIcon
             width={8}
             height={14}
           />
         </SliderNavigationArrow>
 
-        <SliderNavigationArrow onClick={onNext}>
+        <SliderNavigationArrow
+          onClick={onNext}
+          $disabled={isEnd}
+          aria-disabled={isEnd}
+        >
           <ArrowIcon
             width={8}
             height={14}

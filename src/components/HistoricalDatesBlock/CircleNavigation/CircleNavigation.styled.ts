@@ -10,7 +10,7 @@ export const CircleContainer = styled.div`
   border: 1px solid ${colors.secondary};
   border-radius: 100%;
 
-  @media (max-width: 768px) {
+  @media (max-width: 992px) {
     display: none;
   }
 `;

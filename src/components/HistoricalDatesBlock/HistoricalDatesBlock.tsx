@@ -6,6 +6,7 @@ import { Timespan } from './Timespan/Timespan';
 import { CircleNavigation } from './CircleNavigation/CircleNavigation';
 import { SliderNavigation } from './SliderNavigation/SliderNavigation';
 import { AppSlider } from '../AppSlider/AppSlider';
+import { isMobile } from '@/utils/isMobile';
 
 import { useHistoricalSlider } from '@/hooks/useHistoricalSlider';
 
@@ -14,7 +15,7 @@ import 'swiper/css';
 import { HistoricalDatesBlockWrapper } from './HistoricalDatesBlock.styled';
 
 export const HistoricalDatesBlock = ({ data }: { data: any }) => {
-  const { setSwiper, activeIndex, onSlideChange, slideTo, next, prev } =
+  const { setSwiper, activeIndex, onSlideChange, slideTo, next, prev, isBeginning, isEnd } =
     useHistoricalSlider();
 
   return (
@@ -49,12 +50,14 @@ export const HistoricalDatesBlock = ({ data }: { data: any }) => {
                   total={data.length}
                   onPrev={prev}
                   onNext={next}
+                  isBeginning={isBeginning}
+                  isEnd={isEnd}
                 />
 
                 <AppSlider
                   key={activeIndex}
                   sliderData={item.details}
-                  isMobile={false}
+                  isMobile={isMobile()}
                 />
               </SectionContent>
             </SwiperSlide>

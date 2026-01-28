@@ -24,7 +24,7 @@ export const SliderNavigationArrows = styled.div`
   gap: 20px;
 `;
 
-export const SliderNavigationArrow = styled.button`
+export const SliderNavigationArrow = styled.button<{ $disabled?: boolean }>`
   display: flex;
   align-items: center;
   justify-content: center;
@@ -35,7 +35,10 @@ export const SliderNavigationArrow = styled.button`
   border-radius: 100%;
   transition: opacity 0.2s;
 
+  opacity: ${({ $disabled }) => ($disabled ? 0.3 : 1)};
+  pointer-events: ${({ $disabled }) => ($disabled ? 'none' : 'auto')};
+
   &:hover {
-    opacity: 0.7;
+    opacity: ${({ $disabled }) => ($disabled ? 0.3 : 0.7)};
   }
 `;
