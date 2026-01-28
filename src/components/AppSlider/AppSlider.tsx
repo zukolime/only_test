@@ -81,7 +81,11 @@ export const AppSlider = ({ sliderData, isMobile }: SliderProps) => {
             $isHidden={isBeginning}
             aria-label='Previous slide'
           >
-            <ArrowIcon name='arrow-left' />
+            <ArrowIcon
+              name='arrow-left'
+              width={6}
+              height={12}
+            />
           </NavigationButton>
           <NavigationButton
             ref={nextRef}
@@ -91,6 +95,8 @@ export const AppSlider = ({ sliderData, isMobile }: SliderProps) => {
           >
             <ArrowIcon
               name='arrow-right'
+              width={6}
+              height={12}
               style={{ transform: 'rotate(180deg)' }}
             />
           </NavigationButton>

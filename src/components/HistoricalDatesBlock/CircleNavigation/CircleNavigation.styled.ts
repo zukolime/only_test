@@ -89,9 +89,8 @@ export const PointButton = styled.button`
     --angle: 330deg;
   }
 
-  &:hover ${PointNumber} {
-    opacity: 1;
-    opacity: 1;
+  &:hover ${PointNumber}, &:focus ${PointNumber} {
+    opacity: 1;    
     visibility: visible;
     transform: translate(-50%, -50%) scale(1);
   }

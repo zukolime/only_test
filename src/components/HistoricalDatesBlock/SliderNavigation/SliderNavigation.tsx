@@ -14,10 +14,19 @@ export const SliderNavigation = () => {
 
       <SliderNavigationArrows>
         <SliderNavigationArrow>
-          <ArrowIcon />
+          <ArrowIcon
+            name='arrow-left'
+            width={8}
+            height={14}
+          />
         </SliderNavigationArrow>
         <SliderNavigationArrow>
-          <ArrowIcon style={{ transform: 'rotate(180deg)' }} />
+          <ArrowIcon
+            name='arrow-right'
+            width={8}
+            height={14}
+            style={{ transform: 'rotate(180deg)' }}
+          />
         </SliderNavigationArrow>
       </SliderNavigationArrows>
     </SliderNavigationWrapper>
