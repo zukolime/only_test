@@ -2,7 +2,8 @@ import { gsap } from 'gsap';
 
 import { useRef, useState, useEffect } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Navigation, FreeMode } from 'swiper/modules';
+import { Navigation } from 'swiper/modules';
+
 import {
   SlideDesciption,
   SliderWrapper,
@@ -15,8 +16,6 @@ import {
 import ArrowIcon from '@/assets/icons/arrow.svg';
 
 import 'swiper/css';
-import 'swiper/css/navigation';
-import 'swiper/css/pagination';
 
 interface SlideData {
   id: string;
@@ -69,21 +68,41 @@ export const AppSlider = ({ sliderData, isMobile }: SliderProps) => {
     );
   }, [sliderData]);
 
+  const breakpoints = {
+    1350: {
+      slidesPerView: 3,
+      spaceBetween: 80,
+      freeMode: false,
+      grabCursor: true,
+    },
+    1200: {
+      slidesPerView: 2,
+      spaceBetween: 40,
+    },
+    768: {
+      spaceBetween: 20,
+    },
+  };
+
   return (
-    <SliderContainer $hasLeftButton={!isBeginning}>
+    <SliderContainer
+      $hasLeftButton={!isBeginning}
+      $isMobile={isMobile}
+    >
       <SliderWrapper ref={sliderRef}>
         <Swiper
           className='cards-swiper'
-          slidesPerView={isMobile ? 2 : 3}
+          slidesPerView={isMobile ? 1.5 : 3}
           spaceBetween={isMobile ? 20 : 80}
           freeMode={isMobile}
           grabCursor={!isMobile}
-          modules={[Navigation, FreeMode]}
+          modules={[Navigation]}
           navigation={{
             prevEl: prevRef.current,
             nextEl: nextRef.current,
           }}
           onSwiper={setSwiperInstance}
+          breakpoints={breakpoints}
         >
           {sliderData.map((item) => (
             <SwiperSlide key={item.id}>

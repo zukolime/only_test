@@ -1,13 +1,16 @@
 import { colors } from '@/styles/colors';
 import styled from 'styled-components';
 
-export const SliderContainer = styled.div<{ $hasLeftButton?: boolean }>`
+export const SliderContainer = styled.div<{
+  $hasLeftButton?: boolean;
+  $isMobile: boolean;
+}>`
   position: relative;
   width: 100%;
   display: flex;
   align-items: center;
-  justify-content: ${({ $hasLeftButton }) =>
-    $hasLeftButton ? 'center' : 'flex-start'};
+  justify-content: ${({ $hasLeftButton, $isMobile }) =>
+    $hasLeftButton || $isMobile ? 'center' : 'flex-start'};
 `;
 
 export const SliderWrapper = styled.div`
@@ -30,11 +33,7 @@ export const SliderWrapper = styled.div`
     }
   }
 
-  @media (max-width: 768px) {
-    max-width: calc(100% - 80px);
-  }
-
-  @media (max-width: 480px) {
+  @media (max-width: 992px) {
     max-width: 100%;
   }
 `;
@@ -82,7 +81,7 @@ export const NavigationButton = styled.button<{
       right: 0;
     `
       : `
-      transform: translateX(-120%);
+      transform: translateX(-50%);
       left: 0;
     `}
 
@@ -99,19 +98,8 @@ export const NavigationButton = styled.button<{
     cursor: not-allowed;
   }
 
-  @media (max-width: 768px) {
-    width: 32px;
-    height: 32px;
-
-    ${({ $isNext }) => ($isNext ? 'right: -16px;' : 'left: -16px;')}
-  }
-
-  @media (max-width: 480px) {
-    ${({ $isHidden }) =>
-      $isHidden &&
-      `
-      display: none;
-    `}
+  @media (max-width: 992px) {
+    display: none;
   }
 `;
 
