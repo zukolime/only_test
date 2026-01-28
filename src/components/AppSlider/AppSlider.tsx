@@ -1,3 +1,5 @@
+import { gsap } from 'gsap';
+
 import { useRef, useState, useEffect } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, FreeMode } from 'swiper/modules';
@@ -17,6 +19,7 @@ import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 
 interface SlideData {
+  id: string;
   year: number;
   description: string;
 }
@@ -29,6 +32,7 @@ interface SliderProps {
 export const AppSlider = ({ sliderData, isMobile }: SliderProps) => {
   const prevRef = useRef<HTMLButtonElement | null>(null);
   const nextRef = useRef<HTMLButtonElement | null>(null);
+  const sliderRef = useRef<HTMLDivElement>(null);
   const [swiperInstance, setSwiperInstance] = useState<any>(null);
   const [isBeginning, setIsBeginning] = useState(true);
   const [isEnd, setIsEnd] = useState(false);
@@ -51,9 +55,23 @@ export const AppSlider = ({ sliderData, isMobile }: SliderProps) => {
     }
   }, [swiperInstance]);
 
+  useEffect(() => {
+    if (!sliderRef.current) return;
+
+    gsap.fromTo(
+      sliderRef.current,
+      { opacity: 0 },
+      {
+        opacity: 1,
+        duration: 2,
+        ease: 'power3.out',
+      },
+    );
+  }, [sliderData]);
+
   return (
     <SliderContainer $hasLeftButton={!isBeginning}>
-      <SliderWrapper>
+      <SliderWrapper ref={sliderRef}>
         <Swiper
           className='cards-swiper'
           slidesPerView={isMobile ? 2 : 3}
@@ -68,7 +86,7 @@ export const AppSlider = ({ sliderData, isMobile }: SliderProps) => {
           onSwiper={setSwiperInstance}
         >
           {sliderData.map((item) => (
-            <SwiperSlide key={item.year}>
+            <SwiperSlide key={item.id}>
               <SlideTitle>{item.year}</SlideTitle>
               <SlideDesciption>{item.description}</SlideDesciption>
             </SwiperSlide>
@@ -79,7 +97,7 @@ export const AppSlider = ({ sliderData, isMobile }: SliderProps) => {
           <NavigationButton
             ref={prevRef}
             $isHidden={isBeginning}
-            aria-label='Previous slide'
+            aria-label='Предыдущий слайд'
           >
             <ArrowIcon
               name='arrow-left'
@@ -91,7 +109,7 @@ export const AppSlider = ({ sliderData, isMobile }: SliderProps) => {
             ref={nextRef}
             $isHidden={isEnd}
             $isNext
-            aria-label='Next slide'
+            aria-label='Следующий слайд'
           >
             <ArrowIcon
               name='arrow-right'

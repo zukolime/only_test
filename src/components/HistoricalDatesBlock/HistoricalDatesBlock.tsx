@@ -11,10 +11,7 @@ import { useHistoricalSlider } from '@/hooks/useHistoricalSlider';
 
 import { SectionContent } from '@/styles/GlobalStyle';
 import 'swiper/css';
-import {
-  HistoricalDatesBlockWrapper,
-  SlideScene,
-} from './HistoricalDatesBlock.styled';
+import { HistoricalDatesBlockWrapper } from './HistoricalDatesBlock.styled';
 
 export const HistoricalDatesBlock = ({ data }: { data: any }) => {
   const { setSwiper, activeIndex, onSlideChange, slideTo, next, prev } =
@@ -26,18 +23,19 @@ export const HistoricalDatesBlock = ({ data }: { data: any }) => {
 
       <HistoricalDatesBlockWrapper>
         <Swiper
+          speed={0}
           className='historical-swiper'
           modules={[Navigation]}
           slidesPerView={1}
-          allowTouchMove
+          allowTouchMove={false}
           onSwiper={setSwiper}
           onSlideChange={onSlideChange}
         >
-          {data.map((item: any, index: any) => (
+          {data.map((item: any) => (
             <SwiperSlide key={item.id}>
               <Timespan
-                startYear={item.timespan.start}
-                lastYear={item.timespan.last}
+                startYear={data[activeIndex].timespan.start}
+                endYear={data[activeIndex].timespan.end}
               />
 
               <CircleNavigation
@@ -54,6 +52,7 @@ export const HistoricalDatesBlock = ({ data }: { data: any }) => {
                 />
 
                 <AppSlider
+                  key={activeIndex}
                   sliderData={item.details}
                   isMobile={false}
                 />

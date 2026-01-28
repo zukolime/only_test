@@ -82,7 +82,7 @@ export const NavigationButton = styled.button<{
       right: 0;
     `
       : `
-      transform: translateX(-50%);
+      transform: translateX(-120%);
       left: 0;
     `}
 

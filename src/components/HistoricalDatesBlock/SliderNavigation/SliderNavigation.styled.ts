@@ -31,14 +31,11 @@ export const SliderNavigationArrow = styled.button`
   width: 50px;
   height: 50px;
   padding: 18px;
-  border: 1px solid ${colors.secondary};
+  border: 1px solid ${colors.primary};
   border-radius: 100%;
-  transition:
-    border-color 0.2s,
-    opacity 0.2s;
+  transition: opacity 0.2s;
 
   &:hover {
-    border-color: ${colors.primary};
     opacity: 0.7;
   }
 `;

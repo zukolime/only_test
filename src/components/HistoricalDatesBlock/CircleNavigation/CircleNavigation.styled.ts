@@ -43,7 +43,7 @@ export const PointLabel = styled.span<{ $isActive: boolean }>`
   position: absolute;
   left: 50%;
   top: 50%;
-  white-space: nowrap;
+  padding-left: 16px;
   font-weight: 700;
   transform: translate(50%, -50%);
   transition:
@@ -74,7 +74,7 @@ export const PointButton = styled.button<{ $isActive?: boolean }>`
 
   transform-origin: center;
   transform: rotate(var(--angle)) translateY(calc(var(--circle-size) / 2))
-    rotate(calc(-1 * var(--angle)));
+    rotate(calc(-1 * var(--angle))) rotate(calc(-1 * var(--circle-rotation, 0deg)));
 
   &:hover ${PointNumber}, &:focus ${PointNumber} {
     opacity: 1;
