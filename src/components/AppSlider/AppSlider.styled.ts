@@ -19,10 +19,15 @@ export const SliderWrapper = styled.div`
     margin: 0 auto;
   }
 
-  .swiper-slide {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
+  .cards-swiper {
+    > .swiper-wrapper {
+      > .swiper-slide {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+      }
+    }
   }
 
   @media (max-width: 768px) {

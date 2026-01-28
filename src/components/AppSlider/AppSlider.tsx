@@ -55,6 +55,7 @@ export const AppSlider = ({ sliderData, isMobile }: SliderProps) => {
     <SliderContainer $hasLeftButton={!isBeginning}>
       <SliderWrapper>
         <Swiper
+          className='cards-swiper'
           slidesPerView={isMobile ? 2 : 3}
           spaceBetween={isMobile ? 20 : 80}
           freeMode={isMobile}
@@ -65,7 +66,6 @@ export const AppSlider = ({ sliderData, isMobile }: SliderProps) => {
             nextEl: nextRef.current,
           }}
           onSwiper={setSwiperInstance}
-          className='swiper'
         >
           {sliderData.map((item) => (
             <SwiperSlide key={item.year}>
