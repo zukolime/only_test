@@ -1,4 +1,6 @@
-export const data = [
+import { DataItem } from '@/types';
+
+export const data: DataItem[] = [
   {
     id: '0',
     label: 'Технологии',

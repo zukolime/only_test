@@ -67,6 +67,7 @@ export const HistoricalDatesBlockWrapper = styled.section`
 
 export const BottomContentWrapper = styled.div`
   position: absolute;
+  z-index: -1;
   align-self: flex-start;
   display: flex;
   flex-direction: column;

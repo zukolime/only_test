@@ -1,85 +1,45 @@
-import { gsap } from 'gsap';
-
-import { useRef, useState, useEffect } from 'react';
+import { useRef, useEffect } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation } from 'swiper/modules';
 
-import {
-  SlideDesciption,
-  SliderWrapper,
-  SlideTitle,
-  NavigationButton,
-  ButtonsWrapper,
-  SliderContainer,
-} from './AppSlider.styled';
+import { useIsMobile } from '@/hooks/useIsMobile';
+import { useSlider } from '@/hooks/useSlider';
+import { DetailItem } from '@/types';
+import { animateFadeIn } from '@/utils/gsapAnimations';
 
-import ArrowIcon from '@/assets/icons/arrow.svg';
+import { SlideDesciption, SliderWrapper, SlideTitle, NavigationButton, ButtonsWrapper, SliderContainer } from './CardSlider.styled';
 
 import 'swiper/css';
-import { useIsMobile } from '@/hooks/useIsMobile';
-
-interface SlideData {
-  id: string;
-  year: number;
-  description: string;
-}
+import ArrowIcon from '@/assets/icons/arrow.svg';
 
 interface SliderProps {
-  sliderData: SlideData[];
+  sliderDetails: DetailItem[];
 }
 
-export const AppSlider = ({ sliderData }: SliderProps) => {
-  const prevRef = useRef<HTMLButtonElement | null>(null);
-  const nextRef = useRef<HTMLButtonElement | null>(null);
-  const sliderRef = useRef<HTMLDivElement>(null);
-  const [swiperInstance, setSwiperInstance] = useState<any>(null);
-  const [isBeginning, setIsBeginning] = useState(true);
-  const [isEnd, setIsEnd] = useState(false);
+export const CardSlider = ({ sliderDetails }: SliderProps) => {
+  const { setSwiper, onSlideChange, isBeginning, isEnd } = useSlider();
 
   const isMobileView = useIsMobile();
 
-  useEffect(() => {
-    if (swiperInstance) {
-      const updateNavigation = () => {
-        setIsBeginning(swiperInstance.isBeginning);
-        setIsEnd(swiperInstance.isEnd);
-      };
-
-      swiperInstance.on('slideChange', updateNavigation);
-      updateNavigation();
-
-      return () => {
-        if (swiperInstance) {
-          swiperInstance.off('slideChange', updateNavigation);
-        }
-      };
-    }
-  }, [swiperInstance]);
+  const prevRef = useRef<HTMLButtonElement | null>(null);
+  const nextRef = useRef<HTMLButtonElement | null>(null);
+  const sliderRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     if (!sliderRef.current) return;
-
-    gsap.fromTo(
-      sliderRef.current,
-      { opacity: 0 },
-      {
-        opacity: 1,
-        duration: 2,
-        ease: 'power3.out',
-      },
-    );
-  }, [sliderData]);
+    animateFadeIn(sliderRef.current);
+  }, [sliderDetails]);
 
   const breakpoints = {
+    1200: {
+      slidesPerView: 2,
+      spaceBetween: 40,
+    },
     1350: {
       slidesPerView: 3,
       spaceBetween: 80,
       freeMode: false,
       grabCursor: true,
-    },
-    1200: {
-      slidesPerView: 2,
-      spaceBetween: 40,
     },
   };
 
@@ -92,20 +52,21 @@ export const AppSlider = ({ sliderData }: SliderProps) => {
         <Swiper
           key={isMobileView ? 'mobile' : 'desktop'}
           className='cards-swiper'
+          modules={[Navigation]}
           slidesPerView={isMobileView ? 1.5 : 3}
           spaceBetween={isMobileView ? 20 : 80}
           freeMode={isMobileView}
           grabCursor={!isMobileView}
-          modules={[Navigation]}
+          breakpoints={breakpoints}
           navigation={{
             prevEl: prevRef.current,
             nextEl: nextRef.current,
           }}
-          onSwiper={setSwiperInstance}
-          breakpoints={breakpoints}
+          onSwiper={setSwiper}
+          onSlideChange={onSlideChange}
         >
-          {sliderData.map((item) => (
-            <SwiperSlide key={item.id}>
+          {sliderDetails.map((item) => (
+            <SwiperSlide key={item.year}>
               <SlideTitle>{item.year}</SlideTitle>
               <SlideDesciption>{item.description}</SlideDesciption>
             </SwiperSlide>
@@ -119,11 +80,11 @@ export const AppSlider = ({ sliderData }: SliderProps) => {
             aria-label='Предыдущий слайд'
           >
             <ArrowIcon
-              name='arrow-left'
               width={6}
               height={12}
             />
           </NavigationButton>
+
           <NavigationButton
             ref={nextRef}
             $isHidden={isEnd}
@@ -131,7 +92,6 @@ export const AppSlider = ({ sliderData }: SliderProps) => {
             aria-label='Следующий слайд'
           >
             <ArrowIcon
-              name='arrow-right'
               width={6}
               height={12}
               style={{ transform: 'rotate(180deg)' }}

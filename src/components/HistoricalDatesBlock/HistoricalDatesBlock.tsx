@@ -1,34 +1,22 @@
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination } from 'swiper/modules';
-import 'swiper/css/pagination';
 
 import { SectionTitle } from '@/components/SectionTitle/SectionTitle';
 import { Timespan } from './Timespan/Timespan';
 import { CircleNavigation } from './CircleNavigation/CircleNavigation';
 import { SliderNavigation } from './SliderNavigation/SliderNavigation';
-import { AppSlider } from '../AppSlider/AppSlider';
+import { CardSlider } from '../CardSlider/CardSlider';
 
-import { useHistoricalSlider } from '@/hooks/useHistoricalSlider';
-
-import 'swiper/css';
-import {
-  BottomContentWrapper,
-  HistoricalDatesBlockWrapper,
-  SliderLabel,
-} from './HistoricalDatesBlock.styled';
 import { useIsMobile } from '@/hooks/useIsMobile';
+import { useSlider } from '@/hooks/useSlider';
+import { DataItem } from '@/types';
 
-export const HistoricalDatesBlock = ({ data }: { data: any }) => {
-  const {
-    setSwiper,
-    activeIndex,
-    onSlideChange,
-    slideTo,
-    next,
-    prev,
-    isBeginning,
-    isEnd,
-  } = useHistoricalSlider();
+import { BottomContentWrapper, HistoricalDatesBlockWrapper, SliderLabel } from './HistoricalDatesBlock.styled';
+import 'swiper/css';
+import 'swiper/css/pagination';
+
+export const HistoricalDatesBlock = ({ data }: { data: DataItem[] }) => {
+  const { setSwiper, activeIndex, onSlideChange, slideTo, next, prev, isBeginning, isEnd } = useSlider();
 
   const isMobileView = useIsMobile();
 
@@ -47,7 +35,7 @@ export const HistoricalDatesBlock = ({ data }: { data: any }) => {
           onSwiper={setSwiper}
           onSlideChange={onSlideChange}
         >
-          {data.map((item: any) => (
+          {data.map((item: DataItem) => (
             <SwiperSlide key={item.id}>
               <Timespan
                 startYear={data[activeIndex].timespan.start}
@@ -58,6 +46,7 @@ export const HistoricalDatesBlock = ({ data }: { data: any }) => {
                 <SliderLabel>{data[activeIndex].label}</SliderLabel>
               ) : (
                 <CircleNavigation
+                  items={data}
                   activeIndex={activeIndex}
                   onSelect={slideTo}
                 />
@@ -73,9 +62,9 @@ export const HistoricalDatesBlock = ({ data }: { data: any }) => {
                   isEnd={isEnd}
                 />
 
-                <AppSlider
+                <CardSlider
                   key={activeIndex}
-                  sliderData={item.details}
+                  sliderDetails={item.details}
                 />
               </BottomContentWrapper>
             </SwiperSlide>

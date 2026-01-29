@@ -1,11 +1,6 @@
-import ArrowIcon from '@/assets/icons/arrow.svg';
+import { SliderNavigationArrow, SliderNavigationArrows, SliderNavigationCounter, SliderNavigationWrapper } from './SliderNavigation.styled';
 
-import {
-  SliderNavigationArrow,
-  SliderNavigationArrows,
-  SliderNavigationCounter,
-  SliderNavigationWrapper,
-} from './SliderNavigation.styled';
+import ArrowIcon from '@/assets/icons/arrow.svg';
 
 interface SliderNavigationProps {
   current: number;
@@ -16,14 +11,7 @@ interface SliderNavigationProps {
   onNext: () => void;
 }
 
-export const SliderNavigation = ({
-  current,
-  total,
-  isBeginning,
-  isEnd,
-  onPrev,
-  onNext,
-}: SliderNavigationProps) => {
+export const SliderNavigation = ({ current, total, isBeginning, isEnd, onPrev, onNext }: SliderNavigationProps) => {
   return (
     <SliderNavigationWrapper>
       <SliderNavigationCounter>
