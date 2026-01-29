@@ -6,16 +6,12 @@ module.exports = {
     extensions: ['.js', '.jsx', '.ts', '.tsx'],
     alias: {
       '@': path.resolve(__dirname, 'src'),
-      'styled-components': path.resolve(
-        __dirname,
-        'node_modules',
-        'styled-components',
-      ),
+      'styled-components': path.resolve(__dirname, 'node_modules', 'styled-components'),
     },
   },
   entry: './src/index.tsx',
   output: {
-    path: path.resolve(__dirname, 'build'),
+    path: path.resolve(__dirname, 'dist'),
     filename: 'bundle.js',
     clean: true,
   },
