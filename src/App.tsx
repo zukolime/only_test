@@ -1,4 +1,4 @@
-import { Container, GlobalStyle, Section } from '@/styles/GlobalStyle';
+import { Container, GlobalStyle } from '@/styles/GlobalStyle';
 import { HistoricalDatesBlock } from '@/components/HistoricalDatesBlock/HistoricalDatesBlock';
 import { data } from './data/data';
 
