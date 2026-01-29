@@ -1,34 +1,49 @@
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Navigation } from 'swiper/modules';
+import { Navigation, Pagination } from 'swiper/modules';
+import 'swiper/css/pagination';
 
 import { SectionTitle } from '@/components/SectionTitle/SectionTitle';
 import { Timespan } from './Timespan/Timespan';
 import { CircleNavigation } from './CircleNavigation/CircleNavigation';
 import { SliderNavigation } from './SliderNavigation/SliderNavigation';
 import { AppSlider } from '../AppSlider/AppSlider';
-import { isMobile } from '@/utils/isMobile';
 
 import { useHistoricalSlider } from '@/hooks/useHistoricalSlider';
 
-import { SectionContent } from '@/styles/GlobalStyle';
 import 'swiper/css';
-import { HistoricalDatesBlockWrapper } from './HistoricalDatesBlock.styled';
+import {
+  BottomContentWrapper,
+  HistoricalDatesBlockWrapper,
+  SliderLabel,
+} from './HistoricalDatesBlock.styled';
+import { useIsMobile } from '@/hooks/useIsMobile';
 
 export const HistoricalDatesBlock = ({ data }: { data: any }) => {
-  const { setSwiper, activeIndex, onSlideChange, slideTo, next, prev, isBeginning, isEnd } =
-    useHistoricalSlider();
+  const {
+    setSwiper,
+    activeIndex,
+    onSlideChange,
+    slideTo,
+    next,
+    prev,
+    isBeginning,
+    isEnd,
+  } = useHistoricalSlider();
+
+  const isMobileView = useIsMobile();
 
   return (
     <>
-      <SectionTitle title='Исторические даты' />
-
       <HistoricalDatesBlockWrapper>
+        <SectionTitle title='Исторические даты' />
+
         <Swiper
           speed={0}
           className='historical-swiper'
-          modules={[Navigation]}
+          modules={[Navigation, Pagination]}
           slidesPerView={1}
           allowTouchMove={false}
+          pagination={{ clickable: isMobileView ? true : false }}
           onSwiper={setSwiper}
           onSlideChange={onSlideChange}
         >
@@ -39,12 +54,16 @@ export const HistoricalDatesBlock = ({ data }: { data: any }) => {
                 endYear={data[activeIndex].timespan.end}
               />
 
-              <CircleNavigation
-                activeIndex={activeIndex}
-                onSelect={slideTo}
-              />
+              {isMobileView ? (
+                <SliderLabel>{data[activeIndex].label}</SliderLabel>
+              ) : (
+                <CircleNavigation
+                  activeIndex={activeIndex}
+                  onSelect={slideTo}
+                />
+              )}
 
-              <SectionContent>
+              <BottomContentWrapper>
                 <SliderNavigation
                   current={activeIndex + 1}
                   total={data.length}
@@ -57,9 +76,8 @@ export const HistoricalDatesBlock = ({ data }: { data: any }) => {
                 <AppSlider
                   key={activeIndex}
                   sliderData={item.details}
-                  isMobile={isMobile()}
                 />
-              </SectionContent>
+              </BottomContentWrapper>
             </SwiperSlide>
           ))}
         </Swiper>

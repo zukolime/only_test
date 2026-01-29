@@ -102,8 +102,10 @@ export const Section = styled.section`
   }
 `;
 
-export const SectionContent = styled.div`
+export const SectionContent = styled.div<{ $isActive: boolean }>`
+  position: absolute;
   align-self: flex-start;
+  padding-top: 120px;
   padding-left: clamp(42px, 2vw, 78px);
   padding-right: 40px;
   width: 100%;

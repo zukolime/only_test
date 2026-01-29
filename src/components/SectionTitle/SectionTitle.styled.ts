@@ -5,6 +5,7 @@ export const SectionHeader = styled.header`
   position: absolute;
   top: 15%;
   align-self: flex-start;
+  width: 100%;
   padding-left: clamp(42px, 2vw, 78px);
   padding-right: 40px;
 
@@ -39,6 +40,6 @@ export const Title = styled.h2`
   max-width: 353px;
   width: 40%;
   font-weight: 700;
-  font-size: clamp(20px, 4vw, 56px);
+  font-size: clamp(20px, 6vw, 56px);
   line-height: 1.2;
 `;

@@ -9,10 +9,6 @@ export const CircleContainer = styled.div`
   aspect-ratio: 1;
   border: 1px solid ${colors.secondary};
   border-radius: 100%;
-
-  @media (max-width: 992px) {
-    display: none;
-  }
 `;
 
 export const PointNumber = styled.span<{ $isActive: boolean }>`

@@ -16,6 +16,7 @@ import {
 import ArrowIcon from '@/assets/icons/arrow.svg';
 
 import 'swiper/css';
+import { useIsMobile } from '@/hooks/useIsMobile';
 
 interface SlideData {
   id: string;
@@ -25,16 +26,17 @@ interface SlideData {
 
 interface SliderProps {
   sliderData: SlideData[];
-  isMobile: boolean;
 }
 
-export const AppSlider = ({ sliderData, isMobile }: SliderProps) => {
+export const AppSlider = ({ sliderData }: SliderProps) => {
   const prevRef = useRef<HTMLButtonElement | null>(null);
   const nextRef = useRef<HTMLButtonElement | null>(null);
   const sliderRef = useRef<HTMLDivElement>(null);
   const [swiperInstance, setSwiperInstance] = useState<any>(null);
   const [isBeginning, setIsBeginning] = useState(true);
   const [isEnd, setIsEnd] = useState(false);
+
+  const isMobileView = useIsMobile();
 
   useEffect(() => {
     if (swiperInstance) {
@@ -79,23 +81,21 @@ export const AppSlider = ({ sliderData, isMobile }: SliderProps) => {
       slidesPerView: 2,
       spaceBetween: 40,
     },
-    768: {
-      spaceBetween: 20,
-    },
   };
 
   return (
     <SliderContainer
       $hasLeftButton={!isBeginning}
-      $isMobile={isMobile}
+      $isMobile={isMobileView}
     >
       <SliderWrapper ref={sliderRef}>
         <Swiper
+          key={isMobileView ? 'mobile' : 'desktop'}
           className='cards-swiper'
-          slidesPerView={isMobile ? 1.5 : 3}
-          spaceBetween={isMobile ? 20 : 80}
-          freeMode={isMobile}
-          grabCursor={!isMobile}
+          slidesPerView={isMobileView ? 1.5 : 3}
+          spaceBetween={isMobileView ? 20 : 80}
+          freeMode={isMobileView}
+          grabCursor={!isMobileView}
           modules={[Navigation]}
           navigation={{
             prevEl: prevRef.current,

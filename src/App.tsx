@@ -7,9 +7,7 @@ function App() {
     <>
       <GlobalStyle />
       <Container>
-        <Section>
-          <HistoricalDatesBlock data={data} />
-        </Section>
+        <HistoricalDatesBlock data={data} />
       </Container>
     </>
   );

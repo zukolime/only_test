@@ -7,13 +7,8 @@ export const SliderNavigationWrapper = styled.div`
   justify-content: center;
   align-self: flex-start;
   gap: 20px;
-  margin-top: 420px;
   font-weight: 400;
   font-size: 14px;
-
-  @media (max-width: 520px) {
-    margin-top: 220px;
-  }
 `;
 
 export const SliderNavigationCounter = styled.span``;
@@ -22,6 +17,10 @@ export const SliderNavigationArrows = styled.div`
   display: flex;
   align-items: center;
   gap: 20px;
+
+  @media (max-width: 768px) {
+    gap: 9px;
+  }
 `;
 
 export const SliderNavigationArrow = styled.button<{ $disabled?: boolean }>`
@@ -40,5 +39,11 @@ export const SliderNavigationArrow = styled.button<{ $disabled?: boolean }>`
 
   &:hover {
     opacity: ${({ $disabled }) => ($disabled ? 0.3 : 0.7)};
+  }
+
+  @media (max-width: 768px) {
+    width: 25px;
+    height: 25px;
+    padding: 9px;
   }
 `;
