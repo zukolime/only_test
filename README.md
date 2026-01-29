@@ -40,7 +40,7 @@ npm install
 ### Запуск в режиме разработки
 
 ```
-npm run start
+npm start
 ```
 
 Проект откроется автоматически по ссылке http://localhost:3000/
