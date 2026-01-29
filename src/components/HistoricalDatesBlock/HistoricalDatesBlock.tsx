@@ -31,7 +31,7 @@ export const HistoricalDatesBlock = ({ data }: { data: DataItem[] }) => {
           modules={[Navigation, Pagination]}
           slidesPerView={1}
           allowTouchMove={false}
-          pagination={{ clickable: isMobileView ? true : false }}
+          pagination={{ clickable: true }}
           onSwiper={setSwiper}
           onSlideChange={onSlideChange}
         >

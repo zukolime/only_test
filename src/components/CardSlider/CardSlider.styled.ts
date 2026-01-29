@@ -9,18 +9,13 @@ export const SliderContainer = styled.div<{
   width: 100%;
   display: flex;
   align-items: center;
-  justify-content: ${({ $hasLeftButton, $isMobile }) =>
-    $hasLeftButton || $isMobile ? 'center' : 'flex-start'};
+  justify-content: ${({ $hasLeftButton, $isMobile }) => ($hasLeftButton || $isMobile ? 'center' : 'flex-start')};
 `;
 
 export const SliderWrapper = styled.div`
   width: 100%;
   max-width: calc(100% - 100px);
   padding-top: clamp(20px, 2vw, 50px);
-
-  .swiper-wrapper {
-    margin: 0 auto;
-  }
 
   .cards-swiper {
     > .swiper-wrapper {
@@ -58,7 +53,7 @@ export const NavigationButton = styled.button<{
   position: absolute;
   width: 40px;
   height: 40px;
-  border-radius: 50%;
+  border-radius: 100%;
   background: transparent;
   border: none;
   cursor: pointer;
