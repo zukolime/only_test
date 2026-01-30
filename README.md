@@ -2,6 +2,8 @@
 
 React + TypeScript + styled-components + Swiper + GSAP
 
+## Демо → [тык](https://only-test-sable.vercel.app/)
+
 ## Инструкция по запуску
 
 ##### Перед запуском убедитесь, что у вас установлены:
