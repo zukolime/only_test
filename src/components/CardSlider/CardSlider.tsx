@@ -64,6 +64,9 @@ export const CardSlider = ({ sliderDetails }: SliderProps) => {
           }}
           onSwiper={setSwiper}
           onSlideChange={onSlideChange}
+          observer
+          observeParents
+          updateOnWindowResize
         >
           {sliderDetails.map((item) => (
             <SwiperSlide key={item.year}>

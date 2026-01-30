@@ -44,10 +44,20 @@ export const HistoricalDatesBlockWrapper = styled.section`
     .swiper-pagination {
       display: none;
       margin-bottom: 100px;
+
+      @media (min-height: 420px) and (max-height: 620px) {
+        margin-bottom: 0px;
+      }
     }
 
     .swiper-pagination-bullet {
       background-color: ${colors.primary};
+    }
+  }
+
+  .swiper-pagination {
+    @media (max-height: 420px) {
+      margin-bottom: 0px;
     }
   }
 

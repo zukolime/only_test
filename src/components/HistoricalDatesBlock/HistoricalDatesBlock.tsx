@@ -34,6 +34,9 @@ export const HistoricalDatesBlock = ({ data }: { data: DataItem[] }) => {
           pagination={{ clickable: true }}
           onSwiper={setSwiper}
           onSlideChange={onSlideChange}
+          observer
+          observeParents
+          updateOnWindowResize
         >
           {data.map((item: DataItem) => (
             <SwiperSlide key={item.id}>
