@@ -2,7 +2,7 @@
 
 React + TypeScript + styled-components + Swiper + GSAP
 
-## Демо → [тык](https://only-test-sable.vercel.app/)
+**Демо → https://only-test-sable.vercel.app/**
 
 ## Инструкция по запуску
 
