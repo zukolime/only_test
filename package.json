@@ -1,6 +1,11 @@
 {
   "name": "only_test",
   "version": "1.0.0",
+  "author": {
+    "name": "Perminova Alena",
+    "email": "zukolime.px@gmail.com",
+    "url": "https://github.com/zukolime"
+  },
   "description": "",
   "main": "src/index.tsx",
   "scripts": {
@@ -8,7 +13,6 @@
     "build": "webpack --mode production"
   },
   "keywords": [],
-  "author": "",
   "license": "ISC",
   "type": "commonjs",
   "dependencies": {
