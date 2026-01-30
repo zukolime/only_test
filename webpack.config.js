@@ -11,6 +11,7 @@ module.exports = {
   },
   entry: './src/index.tsx',
   output: {
+    publicPath: '/',
     path: path.resolve(__dirname, 'dist'),
     filename: 'bundle.js',
     clean: true,
@@ -18,6 +19,7 @@ module.exports = {
   plugins: [
     new htmlWebpackPlugin({
       template: './public/index.html',
+      favicon: './public/favicon.ico',
     }),
   ],
   module: {
@@ -35,6 +37,13 @@ module.exports = {
         test: /\.svg$/i,
         issuer: /\.[jt]sx?$/,
         use: ['@svgr/webpack'],
+      },
+      {
+        test: /\.(woff2?|eot|ttf|otf)$/i,
+        type: 'asset/resource',
+        generator: {
+          filename: 'fonts/[name][ext]',
+        },
       },
     ],
   },

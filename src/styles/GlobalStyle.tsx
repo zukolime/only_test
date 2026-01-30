@@ -1,26 +1,32 @@
 import styled, { createGlobalStyle } from 'styled-components';
+
+import BebasNeueWoff2 from '@/assets/fonts/BebasNeue-Regular.woff2';
+import BebasNeueWoff from '@/assets/fonts/BebasNeue-Regular.woff';
+import PTSansWoff2 from '@/assets/fonts/PTSans-Regular.woff2';
+import PTSansWoff from '@/assets/fonts/PTSans-Regular.woff';
+
 import { colors } from './colors';
 
 export const GlobalStyle = createGlobalStyle`
-    @font-face {
-      font-family: 'Bebas Neue';
-      src:
-        url('@/assets/fonts/BebasNeue-Regular.woff2') format('woff2'),
-        url('@/assets/BebasNeue-Regular.woff') format('woff');
-      font-weight: normal;
-      font-style: normal;
-      font-display: swap;
-    }
+  @font-face {
+    font-family: 'Bebas Neue';
+    src:
+      url(${BebasNeueWoff2}) format('woff2'),
+      url(${BebasNeueWoff}) format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+  }
 
-    @font-face {
-      font-family: 'PT Sans', sans-serif;
-      src:
-        url('/@/assets/PTSans-Regular.woff2') format('woff2'),
-        url('@/assets/PTSans-Regular.woff') format('woff');
-      font-weight: normal;
-      font-style: normal;
-      font-display: swap;
-    }
+  @font-face {
+    font-family: 'PT Sans';
+    src:
+      url(${PTSansWoff2}) format('woff2'),
+      url(${PTSansWoff}) format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+  }
 
     * {
       box-sizing: border-box;
