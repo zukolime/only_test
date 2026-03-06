@@ -16,7 +16,7 @@ import 'swiper/css';
 import 'swiper/css/pagination';
 
 export const HistoricalDatesBlock = ({ data }: { data: DataItem[] }) => {
-  const { setSwiper, activeIndex, onSlideChange, slideTo, next, prev, isBeginning, isEnd } = useSlider();
+  const { setSwiper, activeIndex, updateState, slideTo, next, prev, isBeginning, isEnd } = useSlider();
 
   const isMobileView = useIsMobile();
 
@@ -33,11 +33,8 @@ export const HistoricalDatesBlock = ({ data }: { data: DataItem[] }) => {
           allowTouchMove={false}
           pagination={{ clickable: true }}
           onSwiper={setSwiper}
-          onSlideChange={onSlideChange}
-          observer
-          observeParents
-          updateOnWindowResize
-        >
+          onSlideChange={updateState}
+          updateOnWindowResize>
           {data.map((item: DataItem) => (
             <SwiperSlide key={item.id}>
               <Timespan

@@ -17,7 +17,7 @@ interface SliderProps {
 }
 
 export const CardSlider = ({ sliderDetails }: SliderProps) => {
-  const { setSwiper, onSlideChange, isBeginning, isEnd } = useSlider();
+  const { setSwiper, updateState, isBeginning, isEnd } = useSlider();
 
   const isMobileView = useIsMobile();
 
@@ -31,6 +31,16 @@ export const CardSlider = ({ sliderDetails }: SliderProps) => {
   }, [sliderDetails]);
 
   const breakpoints = {
+    768: {
+      slidesPerView: 1.5,
+      spaceBetween: 20,
+    },
+
+    992: {
+      slidesPerView: 2,
+      spaceBetween: 20,
+    },
+
     1200: {
       slidesPerView: 2,
       spaceBetween: 40,
@@ -46,15 +56,11 @@ export const CardSlider = ({ sliderDetails }: SliderProps) => {
   return (
     <SliderContainer
       $hasLeftButton={!isBeginning}
-      $isMobile={isMobileView}
-    >
+      $isMobile={isMobileView}>
       <SliderWrapper ref={sliderRef}>
         <Swiper
-          key={isMobileView ? 'mobile' : 'desktop'}
           className='cards-swiper'
           modules={[Navigation]}
-          slidesPerView={isMobileView ? 1.5 : 3}
-          spaceBetween={isMobileView ? 20 : 80}
           freeMode={isMobileView}
           grabCursor={!isMobileView}
           breakpoints={breakpoints}
@@ -63,11 +69,9 @@ export const CardSlider = ({ sliderDetails }: SliderProps) => {
             nextEl: nextRef.current,
           }}
           onSwiper={setSwiper}
-          onSlideChange={onSlideChange}
-          observer
-          observeParents
-          updateOnWindowResize
-        >
+          onSlideChange={updateState}
+          autoHeight
+          updateOnWindowResize>
           {sliderDetails.map((item) => (
             <SwiperSlide key={item.year}>
               <SlideTitle>{item.year}</SlideTitle>
@@ -80,8 +84,7 @@ export const CardSlider = ({ sliderDetails }: SliderProps) => {
           <NavigationButton
             ref={prevRef}
             $isHidden={isBeginning}
-            aria-label='Предыдущий слайд'
-          >
+            aria-label='Предыдущий слайд'>
             <ArrowIcon
               width={6}
               height={12}
@@ -92,8 +95,7 @@ export const CardSlider = ({ sliderDetails }: SliderProps) => {
             ref={nextRef}
             $isHidden={isEnd}
             $isNext
-            aria-label='Следующий слайд'
-          >
+            aria-label='Следующий слайд'>
             <ArrowIcon
               width={6}
               height={12}

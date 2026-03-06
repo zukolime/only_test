@@ -22,7 +22,7 @@ export const useSlider = () => {
 
     setSwiper,
 
-    onSlideChange: updateState,
+    updateState,
 
     slideTo: (index: number) => swiper?.slideTo(index),
     next: () => swiper?.slideNext(),
