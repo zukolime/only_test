@@ -90,19 +90,15 @@ export const BottomContentWrapper = styled.div`
 
   @media (max-width: 768px) {
     flex-direction: column-reverse;
-    margin-top: 320px;
-  }
-
-  @media (max-width: 992px) {
     padding: 0;
+    margin-top: 320px;
   }
 `;
 
-export const SliderLabel = styled.span`
+export const SliderLabel = styled.div`
+  width: 100%;
+  height: 40px;
   border-bottom: 1px solid ${colors.secondary};
-  padding-top: 62px;
-  padding-bottom: 32px;
   font-weight: 700;
   font-size: 16px;
-  width: 100%;
 `;

@@ -31,9 +31,9 @@ export const CardSlider = ({ sliderDetails }: SliderProps) => {
   }, [sliderDetails]);
 
   const breakpoints = {
-    768: {
+    0: {
       slidesPerView: 1.5,
-      spaceBetween: 20,
+      spaceBetween: 40,
     },
 
     992: {
@@ -45,17 +45,16 @@ export const CardSlider = ({ sliderDetails }: SliderProps) => {
       slidesPerView: 2,
       spaceBetween: 40,
     },
+
     1350: {
       slidesPerView: 3,
       spaceBetween: 80,
-      freeMode: false,
-      grabCursor: true,
     },
   };
 
   return (
     <SliderContainer
-      $hasLeftButton={!isBeginning}
+      $hasLeftButton={!isBeginning && !isMobileView}
       $isMobile={isMobileView}>
       <SliderWrapper ref={sliderRef}>
         <Swiper
@@ -70,7 +69,6 @@ export const CardSlider = ({ sliderDetails }: SliderProps) => {
           }}
           onSwiper={setSwiper}
           onSlideChange={updateState}
-          autoHeight
           updateOnWindowResize>
           {sliderDetails.map((item) => (
             <SwiperSlide key={item.year}>
@@ -80,29 +78,31 @@ export const CardSlider = ({ sliderDetails }: SliderProps) => {
           ))}
         </Swiper>
 
-        <ButtonsWrapper>
-          <NavigationButton
-            ref={prevRef}
-            $isHidden={isBeginning}
-            aria-label='Предыдущий слайд'>
-            <ArrowIcon
-              width={6}
-              height={12}
-            />
-          </NavigationButton>
+        {!isMobileView && (
+          <ButtonsWrapper>
+            <NavigationButton
+              ref={prevRef}
+              $isHidden={isBeginning}
+              aria-label='Предыдущий слайд'>
+              <ArrowIcon
+                width={6}
+                height={12}
+              />
+            </NavigationButton>
 
-          <NavigationButton
-            ref={nextRef}
-            $isHidden={isEnd}
-            $isNext
-            aria-label='Следующий слайд'>
-            <ArrowIcon
-              width={6}
-              height={12}
-              style={{ transform: 'rotate(180deg)' }}
-            />
-          </NavigationButton>
-        </ButtonsWrapper>
+            <NavigationButton
+              ref={nextRef}
+              $isHidden={isEnd}
+              $isNext
+              aria-label='Следующий слайд'>
+              <ArrowIcon
+                width={6}
+                height={12}
+                style={{ transform: 'rotate(180deg)' }}
+              />
+            </NavigationButton>
+          </ButtonsWrapper>
+        )}
       </SliderWrapper>
     </SliderContainer>
   );

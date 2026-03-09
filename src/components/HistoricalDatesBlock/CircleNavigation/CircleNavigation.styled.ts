@@ -30,7 +30,8 @@ export const PointNumber = styled.span<{ $isActive: boolean }>`
   transform: translate(-50%, -50%) scale(${({ $isActive }) => ($isActive ? 1 : 0)});
   transition:
     opacity 0.4s,
-    visibility 0.4s;
+    visibility 0.4s,
+    transform 0.4s ease;
 `;
 
 export const PointLabel = styled.span<{ $isActive: boolean }>`
@@ -69,8 +70,8 @@ export const PointButton = styled.button<{ $isActive?: boolean }>`
   cursor: pointer;
 
   transform-origin: center;
-  transform: rotate(var(--angle)) translateY(calc(var(--circle-size) / 2))
-    rotate(calc(-1 * var(--angle))) rotate(calc(-1 * var(--circle-rotation, 0deg)));
+  transform: rotate(var(--angle)) translateY(calc(var(--circle-size) / 2)) rotate(calc(-1 * var(--angle)))
+    rotate(calc(-1 * var(--circle-rotation, 0deg)));
 
   &:hover ${PointNumber}, &:focus ${PointNumber} {
     opacity: 1;

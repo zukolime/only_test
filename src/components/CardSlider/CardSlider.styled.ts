@@ -11,7 +11,7 @@ export const SliderContainer = styled.div<{
   align-items: center;
   justify-content: ${({ $hasLeftButton }) => ($hasLeftButton ? 'center' : 'flex-start')};
 
-  @media (max-width: 992px) {
+  @media (min-width: 768px) and (max-width: 992px) {
     width: 95%;
   }
 `;
@@ -30,6 +30,10 @@ export const SliderWrapper = styled.div`
         gap: 15px;
       }
     }
+  }
+
+  @media (max-width: 768px) {
+    max-width: 100%;
   }
 `;
 
