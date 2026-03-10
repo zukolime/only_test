@@ -2,12 +2,10 @@ import styled from 'styled-components';
 import { colors } from '@/styles/colors';
 
 export const SectionHeader = styled.header`
-  position: absolute;
-  top: 15%;
-  align-self: flex-start;
-  width: 100%;
-  padding-left: clamp(42px, 2vw, 78px);
-  padding-right: 40px;
+  position: relative;
+  grid-column: 1 / -1;
+  grid-row: 2 / 3;
+  padding-left: clamp(42px, 8vw, 80px);
 
   &:before {
     position: absolute;
@@ -18,18 +16,14 @@ export const SectionHeader = styled.header`
     width: 5px;
     height: 100%;
     background: ${colors.accentPrimary};
-    background: linear-gradient(
-      180deg,
-      ${colors.accentPrimary} 0%,
-      ${colors.accentSecondary} 100%
-    );
+    background: linear-gradient(180deg, ${colors.accentPrimary} 0%, ${colors.accentSecondary} 100%);
   }
 
-  @media (max-width: 768px) {
+  @media (max-width: 770px) {
     padding: 0;
   }
 
-  @media (max-width: 768px) {
+  @media (max-width: 770px) {
     &:before {
       display: none;
     }

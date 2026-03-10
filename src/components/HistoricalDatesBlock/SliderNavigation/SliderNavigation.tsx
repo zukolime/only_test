@@ -1,4 +1,10 @@
-import { SliderNavigationArrow, SliderNavigationArrows, SliderNavigationCounter, SliderNavigationWrapper } from './SliderNavigation.styled';
+import {
+  SliderNavigationArrow,
+  SliderNavigationArrows,
+  SliderNavigationCounter,
+  SliderNavigationDots,
+  SliderNavigationWrapper,
+} from './SliderNavigation.styled';
 
 import ArrowIcon from '@/assets/icons/arrow.svg';
 
@@ -22,8 +28,7 @@ export const SliderNavigation = ({ current, total, isBeginning, isEnd, onPrev, o
         <SliderNavigationArrow
           onClick={onPrev}
           $disabled={isBeginning}
-          aria-disabled={isBeginning}
-        >
+          aria-disabled={isBeginning}>
           <ArrowIcon
             width={8}
             height={14}
@@ -33,8 +38,7 @@ export const SliderNavigation = ({ current, total, isBeginning, isEnd, onPrev, o
         <SliderNavigationArrow
           onClick={onNext}
           $disabled={isEnd}
-          aria-disabled={isEnd}
-        >
+          aria-disabled={isEnd}>
           <ArrowIcon
             width={8}
             height={14}

@@ -3,7 +3,8 @@ import styled from 'styled-components';
 
 export const CircleContainer = styled.div`
   --circle-size: clamp(420px, 40vw, 530px);
-  position: absolute;
+  grid-column: 1 / -1;
+  grid-row: 1;
   text-align: center;
   width: var(--circle-size);
   aspect-ratio: 1;
@@ -40,9 +41,9 @@ export const PointLabel = styled.span<{ $isActive: boolean }>`
   position: absolute;
   left: 50%;
   top: 50%;
-  padding-left: 16px;
+  padding-left: 42px;
   font-weight: 700;
-  transform: translate(50%, -50%);
+  transform: translateY(-50%);
   transition:
     opacity 0.4s,
     visibility 0.4s;

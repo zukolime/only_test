@@ -63,10 +63,10 @@ export const Container = styled.div`
 
   @media (max-width: 1350px) {
     margin-right: 6vw;
-    margin-left: 6vw;
+    margin-left: 8vw;
   }
 
-  @media (max-width: 768px) {
+  @media (max-width: 770px) {
     max-width: 90%;
     margin: 0 auto;
     border-right: none;

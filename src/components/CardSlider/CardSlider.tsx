@@ -48,7 +48,7 @@ export const CardSlider = ({ sliderDetails }: SliderProps) => {
 
     1350: {
       slidesPerView: 3,
-      spaceBetween: 80,
+      spaceBetween: 75,
     },
   };
 
@@ -77,33 +77,33 @@ export const CardSlider = ({ sliderDetails }: SliderProps) => {
             </SwiperSlide>
           ))}
         </Swiper>
-
-        {!isMobileView && (
-          <ButtonsWrapper>
-            <NavigationButton
-              ref={prevRef}
-              $isHidden={isBeginning}
-              aria-label='Предыдущий слайд'>
-              <ArrowIcon
-                width={6}
-                height={12}
-              />
-            </NavigationButton>
-
-            <NavigationButton
-              ref={nextRef}
-              $isHidden={isEnd}
-              $isNext
-              aria-label='Следующий слайд'>
-              <ArrowIcon
-                width={6}
-                height={12}
-                style={{ transform: 'rotate(180deg)' }}
-              />
-            </NavigationButton>
-          </ButtonsWrapper>
-        )}
       </SliderWrapper>
+
+      {!isMobileView && (
+        <ButtonsWrapper>
+          <NavigationButton
+            ref={prevRef}
+            $isHidden={isBeginning}
+            aria-label='Предыдущий слайд'>
+            <ArrowIcon
+              width={6}
+              height={12}
+            />
+          </NavigationButton>
+
+          <NavigationButton
+            ref={nextRef}
+            $isHidden={isEnd}
+            $isNext
+            aria-label='Следующий слайд'>
+            <ArrowIcon
+              width={6}
+              height={12}
+              style={{ transform: 'rotate(180deg)' }}
+            />
+          </NavigationButton>
+        </ButtonsWrapper>
+      )}
     </SliderContainer>
   );
 };

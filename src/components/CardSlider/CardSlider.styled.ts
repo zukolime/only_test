@@ -5,43 +5,36 @@ export const SliderContainer = styled.div<{
   $hasLeftButton?: boolean;
   $isMobile: boolean;
 }>`
+  grid-row: 3;
+  grid-column: 2 / -1;
   position: relative;
   width: 100%;
+  height: 100%;
   display: flex;
   align-items: center;
   justify-content: ${({ $hasLeftButton }) => ($hasLeftButton ? 'center' : 'flex-start')};
 
-  @media (min-width: 768px) and (max-width: 992px) {
-    width: 95%;
+  @media (max-width: 770px) {
+    grid-column: 1 / -1;
   }
 `;
 
 export const SliderWrapper = styled.div`
   width: 100%;
-  max-width: calc(100% - 100px);
+  max-width: calc(100% - 80px);
+  padding-right: 20px;
   padding-top: clamp(20px, 2vw, 50px);
 
-  .cards-swiper {
-    > .swiper-wrapper {
-      > .swiper-slide {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 15px;
-      }
-    }
-  }
-
-  @media (max-width: 768px) {
+  @media (max-width: 770px) {
     max-width: 100%;
+    height: 170px;
+    padding-right: 0;
   }
 `;
 
 export const ButtonsWrapper = styled.div`
   position: absolute;
   top: 50%;
-  left: 0;
-  right: 0;
   width: 100%;
   transform: translateY(-50%);
   display: flex;
@@ -77,7 +70,7 @@ export const NavigationButton = styled.button<{
     $isNext
       ? `
       transform: translateX(50%);
-      right: 0;      
+      right: 40px;      
     `
       : `
       transform: translateX(-50%);

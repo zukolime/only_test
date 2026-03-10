@@ -2,6 +2,9 @@ import { colors } from '@/styles/colors';
 import styled from 'styled-components';
 
 export const SliderNavigationWrapper = styled.div`
+  width: 100%;
+  grid-row: 2;
+  grid-column: 2 / -1;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -9,6 +12,11 @@ export const SliderNavigationWrapper = styled.div`
   gap: 20px;
   font-weight: 400;
   font-size: 14px;
+
+  @media (max-width: 770px) {
+    grid-row: 4;
+    grid-column: 1 / -1;
+  }
 `;
 
 export const SliderNavigationCounter = styled.span``;
@@ -18,7 +26,7 @@ export const SliderNavigationArrows = styled.div`
   align-items: center;
   gap: 20px;
 
-  @media (max-width: 768px) {
+  @media (max-width: 770px) {
     gap: 9px;
   }
 `;
@@ -41,9 +49,11 @@ export const SliderNavigationArrow = styled.button<{ $disabled?: boolean }>`
     opacity: ${({ $disabled }) => ($disabled ? 0.3 : 0.7)};
   }
 
-  @media (max-width: 768px) {
+  @media (max-width: 770px) {
     width: 25px;
     height: 25px;
     padding: 9px;
   }
 `;
+
+export const SliderNavigationDots = styled.div``;
