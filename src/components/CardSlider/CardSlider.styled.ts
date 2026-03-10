@@ -9,9 +9,9 @@ export const SliderContainer = styled.div<{
   grid-column: 2 / -1;
   position: relative;
   width: 100%;
-  height: 100%;
+  height: 170px;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: ${({ $hasLeftButton }) => ($hasLeftButton ? 'center' : 'flex-start')};
 
   @media (max-width: 770px) {
@@ -21,13 +21,13 @@ export const SliderContainer = styled.div<{
 
 export const SliderWrapper = styled.div`
   width: 100%;
+
   max-width: calc(100% - 80px);
   padding-right: 20px;
   padding-top: clamp(20px, 2vw, 50px);
 
   @media (max-width: 770px) {
     max-width: 100%;
-    height: 170px;
     padding-right: 0;
   }
 `;
@@ -38,6 +38,7 @@ export const ButtonsWrapper = styled.div`
   width: 100%;
   transform: translateY(-50%);
   display: flex;
+  align-items: center;
   justify-content: space-between;
   pointer-events: none;
   z-index: 10;

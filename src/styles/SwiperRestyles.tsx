@@ -2,13 +2,12 @@ import { createGlobalStyle } from 'styled-components';
 import { colors } from './colors';
 
 export const SwiperGlobalStyle = createGlobalStyle`
-  .swiper {
+  .historical-swiper {
     grid-column: 1 / -1;
     grid-row: 3;
     width: 100%;
-  }
-
-  .historical-swiper {
+    padding-top: 36px;
+    margin-top: -36px;
     > .swiper-wrapper {
       > .swiper-slide {
         width: 100%;
@@ -18,7 +17,6 @@ export const SwiperGlobalStyle = createGlobalStyle`
         align-content: center;
         align-items: center;
         justify-items: center;
-        row-gap: 10px;
       }
     }
 

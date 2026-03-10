@@ -14,7 +14,7 @@ export const SliderNavigationWrapper = styled.div`
   font-size: 14px;
 
   @media (max-width: 770px) {
-    grid-row: 4;
+    grid-row: 5;
     grid-column: 1 / -1;
   }
 `;
