@@ -1,10 +1,4 @@
-import {
-  SliderNavigationArrow,
-  SliderNavigationArrows,
-  SliderNavigationCounter,
-  SliderNavigationDots,
-  SliderNavigationWrapper,
-} from './SliderNavigation.styled';
+import { SliderNavigationArrow, SliderNavigationArrows, SliderNavigationCounter, SliderNavigationWrapper } from './SliderNavigation.styled';
 
 import ArrowIcon from '@/assets/icons/arrow.svg';
 

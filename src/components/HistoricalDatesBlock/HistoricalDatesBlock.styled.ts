@@ -35,8 +35,9 @@ export const HistoricalDatesBlockWrapper = styled.section`
   }
 
   @media (max-width: 770px) {
-    grid-template-rows: 30px repeat(2, auto);
-    row-gap: 36px;
+    height: 100vh;
+    grid-template-rows: 56px 70px auto;
+    
     }
   }
 `;

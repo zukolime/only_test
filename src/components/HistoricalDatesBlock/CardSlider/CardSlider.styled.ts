@@ -26,8 +26,12 @@ export const SliderWrapper = styled.div`
 
   @media (max-width: 770px) {
     max-width: 100%;
-    padding-top: 25px;
+
     padding-right: 0;
+  }
+
+  @media (max-height: 620px) {
+    padding-top: 25px;
   }
 `;
 

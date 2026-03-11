@@ -17,6 +17,10 @@ export const SwiperGlobalStyle = createGlobalStyle`
         align-content: center;
         align-items: center;
         justify-items: center;
+
+        @media (max-width: 770px) {
+          align-content: space-around;
+        }
       }
     }
 
@@ -51,7 +55,7 @@ export const SwiperGlobalStyle = createGlobalStyle`
   @media (max-width: 770px) {  
     .historical-swiper > .swiper-pagination {
       display: block;
-      margin-bottom: 52px;
+      margin-bottom: 72px;
     }
   }
 `;
