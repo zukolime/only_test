@@ -3,7 +3,6 @@ import styled from 'styled-components';
 
 export const SliderContainer = styled.div<{
   $hasLeftButton?: boolean;
-  $isMobile: boolean;
 }>`
   grid-row: 3;
   grid-column: 2 / -1;
@@ -13,6 +12,7 @@ export const SliderContainer = styled.div<{
   display: flex;
   align-items: flex-start;
   justify-content: ${({ $hasLeftButton }) => ($hasLeftButton ? 'center' : 'flex-start')};
+  transform: translateY(-10%);
 
   @media (max-width: 770px) {
     grid-column: 1 / -1;
@@ -21,27 +21,26 @@ export const SliderContainer = styled.div<{
 
 export const SliderWrapper = styled.div`
   width: 100%;
-
   max-width: calc(100% - 80px);
   padding-right: 20px;
-  padding-top: clamp(20px, 2vw, 50px);
 
   @media (max-width: 770px) {
     max-width: 100%;
+    padding-top: 25px;
     padding-right: 0;
   }
 `;
 
 export const ButtonsWrapper = styled.div`
   position: absolute;
+  z-index: 10;
   top: 50%;
   width: 100%;
-  transform: translateY(-50%);
   display: flex;
-  align-items: center;
+  align-items: flex-end;
   justify-content: space-between;
+  transform: translateY(-50%);
   pointer-events: none;
-  z-index: 10;
 `;
 
 export const NavigationButton = styled.button<{
@@ -49,23 +48,26 @@ export const NavigationButton = styled.button<{
   $isNext?: boolean;
 }>`
   position: absolute;
+  z-index: 11;
+
   width: 40px;
   height: 40px;
-  border-radius: 100%;
-  background: transparent;
-  border: none;
-  cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: all 0.3s ease;
   flex-shrink: 0;
-  z-index: 11;
+
+  background: transparent;
   box-shadow: 0 0 15px 0 rgba(56, 119, 238, 0.1);
+  border-radius: 100%;
+  border: none;
+
+  cursor: pointer;
+  pointer-events: auto;
+
   transition:
     box-shadow 0.3s ease,
     transform 0.3s ease;
-  pointer-events: auto;
 
   ${({ $isNext }) =>
     $isNext

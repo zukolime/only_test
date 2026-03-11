@@ -34,6 +34,6 @@ export const Title = styled.h2`
   max-width: 353px;
   width: 40%;
   font-weight: 700;
-  font-size: clamp(20px, 6vw, 56px);
+  font-size: clamp(20px, 5vw, 56px);
   line-height: 1.2;
 `;

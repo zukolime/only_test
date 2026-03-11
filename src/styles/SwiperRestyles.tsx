@@ -40,7 +40,7 @@ export const SwiperGlobalStyle = createGlobalStyle`
     }
   }
 
-  @media (max-width: 920px) {
+  @media (max-width: 990px) {
     .swiper-slide-next,
     .swiper-slide-prev {
       opacity: 0.3;

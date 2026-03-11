@@ -5,13 +5,13 @@ import { SectionTitle } from '@/components/SectionTitle/SectionTitle';
 import { Timespan } from './Timespan/Timespan';
 import { CircleNavigation } from './CircleNavigation/CircleNavigation';
 import { SliderNavigation } from './SliderNavigation/SliderNavigation';
-import { CardSlider } from '../CardSlider/CardSlider';
+import { CardSlider } from './CardSlider/CardSlider';
 
 import { useIsMobile } from '@/hooks/useIsMobile';
 import { useSlider } from '@/hooks/useSlider';
 import { DataItem } from '@/types';
 
-import { BottomContentWrapper, HistoricalDatesBlockWrapper, SliderLabel, SliderWrapper, SwiperSlideWrapper } from './HistoricalDatesBlock.styled';
+import { HistoricalDatesBlockWrapper, SliderLabel } from './HistoricalDatesBlock.styled';
 import 'swiper/css';
 import 'swiper/css/pagination';
 

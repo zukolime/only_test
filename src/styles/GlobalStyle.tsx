@@ -28,28 +28,28 @@ export const GlobalStyle = createGlobalStyle`
     font-display: swap;
   }
 
-    * {
-      box-sizing: border-box;
-      padding: 0;
-      margin: 0;
-    }
+  * {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+  }
 
-    body {          
-      font-family: 'PT Sans', sans-serif;
-      background-color: #fff;
-      color: ${colors.primary};
+  body {          
+    font-family: 'PT Sans', sans-serif;
+    background-color: #fff;
+    color: ${colors.primary};
 
-    }
-      
-    ul,
-    li {
-      list-style-type: none;
-    }
+  }
+    
+  ul,
+  li {
+    list-style-type: none;
+  }
 
-    button {
-      cursor: pointer;
-      background: transparent;
-    }
+  button {
+    cursor: pointer;
+    background: transparent;
+  }
 
 `;
 

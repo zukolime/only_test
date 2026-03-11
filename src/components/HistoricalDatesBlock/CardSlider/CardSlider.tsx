@@ -53,9 +53,7 @@ export const CardSlider = ({ sliderDetails }: SliderProps) => {
   };
 
   return (
-    <SliderContainer
-      $hasLeftButton={!isBeginning && !isMobileView}
-      $isMobile={isMobileView}>
+    <SliderContainer $hasLeftButton={!isBeginning && !isMobileView}>
       <SliderWrapper ref={sliderRef}>
         <Swiper
           className='cards-swiper'

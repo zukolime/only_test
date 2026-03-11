@@ -3,18 +3,18 @@ import styled from 'styled-components';
 
 export const HistoricalDatesBlockWrapper = styled.section`
   position: relative;
+  width: 100%;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-template-rows: 120px auto auto;
   grid-auto-rows: auto;
-  width: 100%;
 
   &:before {
     content: '';
     position: absolute;
-    align-self: center;
     width: 100%;
     height: 1px;
+    align-self: center;
     background-color: ${colors.secondary};
   }
 
@@ -48,13 +48,13 @@ export const SwiperSlideWrapper = styled.div``;
 export const BottomContentWrapper = styled.div`
   grid-row: 2;
   grid-column: 1 / -1;
-  align-self: flex-start;
-  display: flex;
-  flex-direction: column;
-  gap: 40px;
+  width: 100%;
   padding-left: clamp(42px, 2vw, 78px);
   padding-right: 40px;
-  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-self: flex-start;
+  gap: 40px;
 
   @media (max-width: 770px) {
     flex-direction: column-reverse;

@@ -2,31 +2,33 @@ import { colors } from '@/styles/colors';
 import styled from 'styled-components';
 
 export const CircleContainer = styled.div`
-  --circle-size: clamp(420px, 40vw, 530px);
+  --circle-size: clamp(420px, 32vw, 530px);
   grid-column: 1 / -1;
   grid-row: 1;
-  text-align: center;
+  z-index: 25;
   width: var(--circle-size);
+  text-align: center;
   aspect-ratio: 1;
   border: 1px solid ${colors.secondary};
   border-radius: 100%;
 `;
 
 export const PointNumber = styled.span<{ $isActive: boolean }>`
-  opacity: ${({ $isActive }) => ($isActive ? 1 : 0)};
-  visibility: ${({ $isActive }) => ($isActive ? 'visible' : 'hidden')};
+  --point-size: clamp(42px, 1vw, 56px);
   position: absolute;
   left: 50%;
   top: 50%;
+  width: var(--point-size);
+  height: var(--point-size);
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 56px;
-  height: 56px;
   font-weight: 400;
+  background-color: #fff;
   border: 1px solid ${colors.primary};
   border-radius: 100%;
-  background-color: #fff;
+  opacity: ${({ $isActive }) => ($isActive ? 1 : 0)};
+  visibility: ${({ $isActive }) => ($isActive ? 'visible' : 'hidden')};
   transform-origin: center;
   transform: translate(-50%, -50%) scale(${({ $isActive }) => ($isActive ? 1 : 0)});
   transition:
@@ -36,13 +38,13 @@ export const PointNumber = styled.span<{ $isActive: boolean }>`
 `;
 
 export const PointLabel = styled.span<{ $isActive: boolean }>`
-  opacity: ${({ $isActive }) => ($isActive ? 1 : 0)};
-  visibility: ${({ $isActive }) => ($isActive ? 'visible' : 'hidden')};
   position: absolute;
   left: 50%;
   top: 50%;
   padding-left: 42px;
   font-weight: 700;
+  opacity: ${({ $isActive }) => ($isActive ? 1 : 0)};
+  visibility: ${({ $isActive }) => ($isActive ? 'visible' : 'hidden')};
   transform: translateY(-50%);
   transition:
     opacity 0.4s,
@@ -63,6 +65,7 @@ export const PointButton = styled.button<{ $isActive?: boolean }>`
 
   font-family: inherit;
   font-size: 20px;
+  font-size: clamp(16px, 1vw, 20px);
   color: inherit;
 
   background-color: ${colors.primary};
@@ -78,11 +81,5 @@ export const PointButton = styled.button<{ $isActive?: boolean }>`
     opacity: 1;
     visibility: visible;
     transform: translate(-50%, -50%) scale(1);
-
-    ${({ $isActive }) =>
-      $isActive &&
-      `
-      --point-size: 56px;
-    `}
   }
 `;
