@@ -1,9 +1,9 @@
 import styled, { createGlobalStyle } from 'styled-components';
 
-import BebasNeueWoff2 from '@/assets/fonts/BebasNeue-Regular.woff2';
 import BebasNeueWoff from '@/assets/fonts/BebasNeue-Regular.woff';
-import PTSansWoff2 from '@/assets/fonts/PTSans-Regular.woff2';
+import BebasNeueWoff2 from '@/assets/fonts/BebasNeue-Regular.woff2';
 import PTSansWoff from '@/assets/fonts/PTSans-Regular.woff';
+import PTSansWoff2 from '@/assets/fonts/PTSans-Regular.woff2';
 
 import { colors } from './colors';
 
@@ -50,6 +50,11 @@ export const GlobalStyle = createGlobalStyle`
     cursor: pointer;
     background: transparent;
   }
+
+  #root {
+  position: relative;
+  }
+
 
 `;
 

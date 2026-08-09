@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { colors } from '@/styles/colors';
 
-export const SectionHeader = styled.header`
+export const SectionHeader = styled.div`
   position: relative;
   grid-column: 1 / -1;
   grid-row: 2 / 3;

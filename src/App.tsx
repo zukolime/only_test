@@ -1,6 +1,7 @@
+import { HistoricalDatesBlock } from '@/components/HistoricalDatesBlock/HistoricalDatesBlock';
 import { Container, GlobalStyle } from '@/styles/GlobalStyle';
 import { SwiperGlobalStyle } from '@/styles/SwiperRestyles';
-import { HistoricalDatesBlock } from '@/components/HistoricalDatesBlock/HistoricalDatesBlock';
+import { CreatedBy } from './components/FooterComponent/CreatedBy';
 import { data } from './data/data';
 
 function App() {
@@ -10,6 +11,7 @@ function App() {
       <SwiperGlobalStyle />
       <Container>
         <HistoricalDatesBlock data={data} />
+        <CreatedBy />
       </Container>
     </>
   );
