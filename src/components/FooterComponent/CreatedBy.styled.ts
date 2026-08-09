@@ -2,11 +2,9 @@ import styled from 'styled-components';
 
 export const CreatedByWrapper = styled.div`
   position: absolute;
-  right: 0;
+  right: 16px;
   bottom: 16px;
-  padding-right: 20px;
-  font-size: 14px;
-  text-align: right;
+  font-size: 12px;
 `;
 
 export const CreatedByLink = styled.a`
